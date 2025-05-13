@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fixed Navbar</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #333;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      z-index: 1000;
+    }
+
+    .navbar.scrolled {
+      background-color: #222;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 15px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .navbar a:hover {
+      background-color: #555;
+      color: #ffd700;
+      border-radius: 4px;
+    }
+
+    .content {
+      margin-top: 80px;
+      padding: 20px;
+      height: 2000px;
+      background: linear-gradient(to bottom, #f9f9f9, #ddd);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar" id="navbar">
+    <a href="#">Home</a>
+    <a href="#">Services</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </div>
+
+  <div class="content">
+    <h1>Scroll Down</h1>
+    <p>This is sample content. Scroll to see the navbar style change.</p>
+  </div>
+
+  <script>
+    window.addEventListener("scroll", function() {
+      const navbar = document.getElementById("navbar");
+      if (window.scrollY > 10) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
+  </script>
+
+</body>
+</html>
